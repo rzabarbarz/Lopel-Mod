@@ -8,8 +8,16 @@ SMODS.Atlas {
     py = 95
 }
 
+-- consumable texture atlas
+SMODS.Atlas {
+    key = "ConsumableAtlas",
+    path = "ConsumableAtlas.png",
+    px = 71,
+    py = 95
+}
 
 
+-- JOKERS
 
 -- Stop The Bus
 SMODS.Joker {
@@ -27,7 +35,6 @@ SMODS.Joker {
     config = {
         increment = 3,
         stored = 0,
-
     },
 
     loc_vars = function(self, info_queue, card)
@@ -40,8 +47,9 @@ SMODS.Joker {
     pos = {x = 0, y = 0},
 
     cost = 3,
+    blueprint_compat = false,
 
-    discovered = true,
+    -- discovered = true,
 
     calculate = function(self, card, context)
         if context.individual and context.cardarea == G.play then
@@ -63,8 +71,44 @@ SMODS.Joker {
                 }
             end
         end
+        
 
     end
 
 
 }
+
+
+
+
+-- CONSUMABLES
+
+-- REVERSE TAROT
+
+-- reverse tower
+SMODS.Consumable {
+    key = "reverseTowerTarot",
+    loc_txt = {
+        name = "rewoT ehT",
+        text = {
+            "Enhances {C:attention}1{} card into {C:attention}Uranium Card{}"
+        }
+    },
+
+    config = {},
+
+    atlas = "ConsumableAtlas",
+    pos = { x = 0, y = 0 },
+
+    cost = 6,
+
+    set = "Tarot",
+}
+
+
+
+
+-- CONSUMABLE TYPES
+
+-- reverse tarot
+SMODS.ConsumableType
