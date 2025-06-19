@@ -16,6 +16,14 @@ SMODS.Atlas {
     py = 95
 }
 
+-- enhancemet texture atlas
+SMODS.Atlas {
+    key = "EnhancementAtlas",
+    path = "EnhancementAtlas.png",
+    px = 71,
+    py = 95
+}
+
 
 -- JOKERS
 
@@ -91,18 +99,50 @@ SMODS.Consumable {
     loc_txt = {
         name = "rewoT ehT",
         text = {
-            "Enhances {C:attention}1{} card into {C:attention}Uranium Card{}"
+            "Enhances {C:attention}#1#{} card into {C:attention}Uranium Card{}"
         }
     },
 
-    config = {},
+    config = {
+        maxHighlited = 1,
+        extra = "uraniumEnhance"
+    },
+
+    loc_vars = function(self, info_queue, card)
+        return {vars = { card.ability.maxHighlited} }
+    end,
 
     atlas = "ConsumableAtlas",
     pos = { x = 0, y = 0 },
 
-    cost = 6,
+    cost = 4,
 
-    set = "Tarot",
+    set = "ReverseTarot",
+
+    hidden = true,
+    soul_set = "Tarot",
+    soul_rate = 0.08,
+
+    can_use = function(self, card)
+        return (table.getn(G.hand.highlited) == card.ability.maxHighlited)
+    end,
+
+    use = function(self, card, area, copier)
+        for i = 1, card.ability.max_highlighted do
+            G.E_MANAGER:add_event(Event({func = function()
+                play_sound('tarot1')
+                card:juice_up(0.3, 0.5)
+                return true end }))
+            
+            G.E_MANAGER:add_event(Event({trigger = 'after',delay = 0.1,func = function()
+                G.hand.highlighted[i]:set_enhancement(card.ability.extra, nil, true)
+                return true end }))
+            
+            delay(0.5)
+        end
+        G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.2,func = function() G.hand:unhighlight_all(); return true end }))
+    end,
+
 }
 
 
@@ -111,4 +151,52 @@ SMODS.Consumable {
 -- CONSUMABLE TYPES
 
 -- reverse tarot
-SMODS.ConsumableType
+SMODS.ConsumableType {
+    key = "ReverseTarot",
+    primary_colour = G.C.WHITE,
+    secondary_colour = HEX("2A0C75"),
+
+    shop_rate = 0.0,
+
+    loc_txt = {
+        name = "Reverse Tarot",
+        collection = "sdraC toraT",
+        undiscovered = {
+            name = "derevocsiD toN",
+            text = {"?????"}
+
+        }
+
+    }
+}
+
+
+
+-- ENHANCEMETS
+
+-- uranium card
+
+SMODS.Enhancement {
+    key = "uraniumEnhance",
+    loc_txt = {
+        name = "Uranium",
+        text = {
+            "Has no suit and rank",
+            "{B:chips}x1.5{} chips"
+        }
+    },
+
+    atlas = "EnhancementAtlas",
+    pos = { x = 0, y = 0 },
+
+    config = {
+        x_chips = 1.5
+    },
+
+
+    no_suit = true,
+    no_rank = true,
+    replace_base_card = true,
+
+
+}
