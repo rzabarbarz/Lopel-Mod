@@ -59,7 +59,7 @@ SMODS.Joker {
                 return {
                     message_card = card,
                     colour = G.C.MULT,
-                    message = "+"..card.ability.increment
+                    message = "+mult"
                 }
             end
         end
