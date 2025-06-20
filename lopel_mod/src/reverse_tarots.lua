@@ -32,7 +32,7 @@ SMODS.Consumable {
     loc_txt = {
         name = "rewoT ehT",
         text = {
-            "Enhances {C:attention}#1#{} card into {C:attention}Uranium Card{}"
+            "Enhances {C:attention}#1#{}", "selected card to", "{C:attention}Uranium Card{}"
         }
     },
 
