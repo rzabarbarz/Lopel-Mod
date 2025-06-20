@@ -45,15 +45,26 @@ SMODS.Enhancement {
         if context.main_scoring and context.cardarea == G.play then
             if pseudorandom("uranium fever") < G.GAME.probabilities.normal / card.ability.extra.decayChance then
                 return {
-                    message = "Decayed",
                     func = function()
+                        G.E_MANAGER:add_event(Event({
+                            trigger = 'after',
+                            delay = 0.4,
+                            func = function()
+                                play_sound('tarot1')
+                                card:juice_up(0.3, 0.5)
+                                return true
+                            end
+                        }))
+
                         G.E_MANAGER:add_event(Event({
                             func = function()
                                 card:set_ability(G.P_CENTERS[card.ability.extra.decayEffect])
+                                return true
                             end,
-                            blocking = false
                         }))
+                        return true
                     end,
+                    message = "Decayed",
                 }
             end
         end
@@ -79,8 +90,8 @@ SMODS.Enhancement {
     pos = { x = 1, y = 0},
 
     config = {
-        h_x_chips = 1.25,
-        extra = {decayEffect = "m_lopel_leadEnhance"}
+        h_x_chips = 1.25
+        -- extra = {decayEffect = "m_lopel_leadEnhance"}
     },
 
     loc_vars = function(self, info_queue, card)
