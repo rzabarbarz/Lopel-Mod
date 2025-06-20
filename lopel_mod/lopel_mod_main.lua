@@ -104,12 +104,12 @@ SMODS.Consumable {
     },
 
     config = {
-        maxHighlited = 1,
-        extra = "uraniumEnhance"
+        maxHighlighted = 1,
+        extra = "m_uranium"
     },
 
     loc_vars = function(self, info_queue, card)
-        return {vars = { card.ability.maxHighlited} }
+        return {vars = { card.ability.maxHighlighted} }
     end,
 
     atlas = "ConsumableAtlas",
@@ -124,18 +124,18 @@ SMODS.Consumable {
     soul_rate = 0.08,
 
     can_use = function(self, card)
-        return (table.getn(G.hand.highlited) == card.ability.maxHighlited)
+        return (#G.hand.highlighted == card.ability.maxHighlighted)
     end,
 
     use = function(self, card, area, copier)
-        for i = 1, card.ability.max_highlighted do
+        for i = 1, card.ability.maxHighlighted do
             G.E_MANAGER:add_event(Event({func = function()
                 play_sound('tarot1')
                 card:juice_up(0.3, 0.5)
                 return true end }))
             
             G.E_MANAGER:add_event(Event({trigger = 'after',delay = 0.1,func = function()
-                G.hand.highlighted[i]:set_enhancement(card.ability.extra, nil, true)
+                G.hand.highlighted[i]:set_ability("m_uranium", false)
                 return true end }))
             
             delay(0.5)
@@ -177,7 +177,7 @@ SMODS.ConsumableType {
 -- uranium card
 
 SMODS.Enhancement {
-    key = "uraniumEnhance",
+    key = "m_uranium",
     loc_txt = {
         name = "Uranium",
         text = {
