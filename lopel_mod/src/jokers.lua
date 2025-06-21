@@ -10,16 +10,6 @@ SMODS.Atlas {
 -- Ticket To Ride
 SMODS.Joker {
     key = "ticketToRideJoker",
-    loc_txt = {
-        name = "Ticket To Ride",
-        text = {
-            "For every card played:",
-            "- if the card is not a face card - stores {C:mult}+#1# {} mult",
-            "- if the card is a face card - gives stored mult and resets",
-            "{C:inactive}(Currently:{} {C:mult}+#2#{} {C:inactive}mult){}"
-        }
-    },
-
 
     config = {
         increment = 3,
@@ -70,13 +60,6 @@ SMODS.Joker {
 -- nat 1
 SMODS.Joker {
     key = "natOneJoker",
-    loc_txt = {
-        name = "Natural 1",
-        text = {
-            "changes all {C:attention}probabilites{} to {C:green}0{}"
-        }
-    },
-
 
     rarity = 2,
 
@@ -98,7 +81,7 @@ SMODS.Joker {
             G.GAME.probabilities[k] = 0
         end
     end,
-    
+
     remove_from_deck = function(self, card, from_debuff)
         oopsDifference = #SMODS.find_card("j_oops", true) - card.ability.oopsCount
 

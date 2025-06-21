@@ -29,12 +29,6 @@ SMODS.ConsumableType {
 -- reverse tower
 SMODS.Consumable {
     key = "reverseTowerTarot",
-    loc_txt = {
-        name = "rewoT ehT",
-        text = {
-            "Enhances {C:attention}#1#{}", "selected card to", "{C:attention}Uranium Card{}"
-        }
-    },
 
     config = {
         max_highlighted = 1,

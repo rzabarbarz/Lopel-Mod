@@ -9,14 +9,6 @@ SMODS.Atlas {
 -- uranium
 SMODS.Enhancement {
     key = "uraniumEnhance",
-    loc_txt = {
-        name = "Uranium",
-        text = {
-            "{X:chips,C:white}x#1#{} chips{}",
-            "Has no suit and rank",
-            "Has a {C:green}#3# in #2#{} chance to decay into a #4# card"
-        }
-    },
 
     atlas = "EnhancementAtlas",
     pos = { x = 0, y = 0 },
@@ -77,15 +69,7 @@ SMODS.Enhancement {
 -- lead
 SMODS.Enhancement {
     key = "leadEnhance",
-    loc_txt = {
-        name = "Lead",
-        text = {
-            "{X:chips,C:white}x#1#{} chips{}",
-            "while this card",
-            "stays in hand"
-            }
-    },
-
+    
     atlas = "EnhancementAtlas",
     pos = { x = 1, y = 0},
 
