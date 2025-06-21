@@ -17,6 +17,16 @@ return {
                     "changes all {C:attention}probabilites{} to {C:green}0{}"
                 },
             },
+
+            j_lopel_knockOffJoker = {
+                name = "Knock-off",
+                text = {
+                    "Copies half of the",
+                    "{C:mult}+mult{} {C:chips}+chips{}",
+                    "{X:mult,C:white}xmult{} {X:chips,C:white}xchips{}",
+                    "given by the {C:attention}Joker{} to the left",
+                }
+            }
         },
 
         ReverseTarot = {
