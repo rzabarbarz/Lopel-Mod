@@ -64,3 +64,46 @@ SMODS.Joker {
 
 
 }
+
+
+
+-- nat 1
+SMODS.Joker {
+    key = "natOneJoker",
+    loc_txt = {
+        name = "Natural 1",
+        text = {
+            "changes all {C:attention}probabilites{} to {C:green}0{}"
+        }
+    },
+
+
+    rarity = 2,
+
+    atlas = "JokerAtlas",
+    pos = {x = 2, y = 0},
+
+    cost = 3,
+    blueprint_compat = false,
+
+    config = {
+        storedProbabilities = {},
+        oopsCount = 0,
+    },
+
+    add_to_deck = function(self, card, from_debuff)
+        card.ability.oopsCount = #SMODS.find_card("j_oops", true)
+        for k, v in pairs(G.GAME.probabilities) do
+            card.ability.storedProbabilities[k] = v
+            G.GAME.probabilities[k] = 0
+        end
+    end,
+    
+    remove_from_deck = function(self, card, from_debuff)
+        oopsDifference = #SMODS.find_card("j_oops", true) - card.ability.oopsCount
+
+        for k, v in pairs(G.GAME.probabilities) do
+            G.GAME.probabilities[k] = (card.ability.storedProbabilities[k] * (2^oopsDifference))
+        end
+    end,
+}
