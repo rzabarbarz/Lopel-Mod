@@ -75,18 +75,24 @@ SMODS.Joker {
     },
 
     add_to_deck = function(self, card, from_debuff)
-        card.ability.oopsCount = #SMODS.find_card("j_oops", true)
-        for k, v in pairs(G.GAME.probabilities) do
-            card.ability.storedProbabilities[k] = v
-            G.GAME.probabilities[k] = 0
+        if #SMODS.find_card("j_lopel_natOneJoker", true) > 0 then
+            card.ability.oopsCount = SMODS.find_card("j_lopel_natOneJoker", true)[1].ability.oopsCount
+            card.ability.storedProbabilities = SMODS.find_card("j_lopel_natOneJoker", true)[1].ability.storedProbabilities
+        else
+            card.ability.oopsCount = #SMODS.find_card("j_oops", true)
+            for k, v in pairs(G.GAME.probabilities) do
+                card.ability.storedProbabilities[k] = v
+                G.GAME.probabilities[k] = 0
+            end
         end
     end,
 
     remove_from_deck = function(self, card, from_debuff)
-        oopsDifference = #SMODS.find_card("j_oops", true) - card.ability.oopsCount
-
-        for k, v in pairs(G.GAME.probabilities) do
-            G.GAME.probabilities[k] = (card.ability.storedProbabilities[k] * (2^oopsDifference))
+        if #SMODS.find_card("j_lopel_natOneJoker", true) == 0 then
+            oopsDifference = #SMODS.find_card("j_oops", true) - card.ability.oopsCount
+            for k, v in pairs(G.GAME.probabilities) do
+                G.GAME.probabilities[k] = (card.ability.storedProbabilities[k] * (2^oopsDifference))
+            end
         end
     end,
 }
