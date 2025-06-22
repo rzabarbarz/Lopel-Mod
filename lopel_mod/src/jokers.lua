@@ -182,13 +182,8 @@ SMODS.Joker {
         }
     },
 
-    update = function (self, card, dt)
-        -- if card.ability.extra.left_joker[1] ~= nil then
-        --     sendInfoMessage(card.ability.extra.left_joker[2], card.ability.extra.left_joker[1].config.center.key)
-        -- else
-        --     sendInfoMessage(card.ability.extra.left_joker[2], card.ability.extra.left_joker[1])
-        -- end
 
+    calculate = function(self, card, context)
         local other_joker = nil
         for i = 1, #G.jokers.cards do
             if G.jokers.cards[i] == card then other_joker = G.jokers.cards[i - 1] end
@@ -210,9 +205,8 @@ SMODS.Joker {
 
             card.ability.extra.left_joker = {other_joker, otherCompat}
         end
-    end,
 
-    calculate = function(self, card, context)
+
         if card.ability.extra.left_joker[2] then
             local ret = SMODS.blueprint_effect(card, card.ability.extra.left_joker[1], context)
 
