@@ -1,25 +1,27 @@
 -- texture atlas
 SMODS.Atlas {
-    key = "ReverseTarotAtlas",
-    path = "ReverseTarotAtlas.png",
+    key = "TwistedTarotAtlas",
+    path = "TwistedTarotAtlas.png",
     px = 71,
     py = 95
 }
 
 -- type
 SMODS.ConsumableType {
-    key = "ReverseTarot",
+    key = "TwistedTarot",
     primary_colour = G.C.WHITE,
     secondary_colour = HEX("2A0C75"),
+
+    collection_rows = {5, 6},
 
     shop_rate = 0.0,
 
     loc_txt = {
-        name = "Reverse Tarot",
-        collection = "sdraC toraT",
+        name = "Twisted Tarot",
+        collection = "Twisted Tarot Card",
         undiscovered = {
-            name = "derevocsiD toN",
-            text = {"?????"}
+            name = "Not Discovered",
+            text = {"Find this card", "in an unseeded run", "to discover it's secrets"}
 
         }
 
@@ -28,7 +30,7 @@ SMODS.ConsumableType {
 
 -- reverse tower
 SMODS.Consumable {
-    key = "reverseTowerTarot",
+    key = "twistedTower",
 
     config = {
         max_highlighted = 1,
@@ -40,12 +42,12 @@ SMODS.Consumable {
         return {vars = { card.ability.max_highlighted} }
     end,
 
-    atlas = "ReverseTarotAtlas",
+    atlas = "TwistedTarotAtlas",
     pos = { x = 6, y = 1 },
 
     cost = 4,
 
-    set = "ReverseTarot",
+    set = "TwistedTarot",
 
     hidden = true,
     soul_set = "Tarot",
@@ -54,14 +56,14 @@ SMODS.Consumable {
 
 -- reverse hanged man
 SMODS.Consumable {
-    key = "reverseHangedManTarot",
+    key = "twistedHangedMan",
 
-    atlas = "ReverseTarotAtlas",
+    atlas = "TwistedTarotAtlas",
     pos = { x = 2, y = 1 },
 
     cost = 4,
 
-    set = "ReverseTarot",
+    set = "TwistedTarot",
 
     hidden = true,
     soul_set = "Tarot",

@@ -29,18 +29,18 @@ return {
             }
         },
 
-        ReverseTarot = {
-            c_lopel_reverseTowerTarot = {
-                name = "rewoT ehT",
+        TwistedTarot = {
+            c_lopel_twistedTower = {
+                name = "The Pit",
                 text = {
                     "Enhances {C:attention}#1#{}", "selected card to", "{C:attention}Uranium Card{}"
                 },
             },
 
-            c_lopel_reverseHangedManTarot = {
-                name = "naM degnaH ehT",
+            c_lopel_twistedHangedMan = {
+                name = "The Impaled",
                 text = {
-                    "Add a {V:1}Cursed Seal{} to {C:attention}#1#{} selected card in your hand",
+                    "Add a {V:1}Cursed Seal{}", "to {C:attention}#1#{} selected", "card in your hand",
                 }
             }
             

@@ -166,7 +166,6 @@ SMODS.Joker {
                 "j_merry_andy",
                 "j_oops",
                 "j_matador",
-                "j_stuntman",
                 "j_invisible",
                 "j_brainstorm",
                 "j_satellite",
