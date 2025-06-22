@@ -114,6 +114,7 @@ SMODS.Joker {
 
     config = {
         extra = {
+            left_joker = {nil, false},
             notCompatible = {
                 "j_four_fingers",
                 "j_mime",
@@ -181,39 +182,46 @@ SMODS.Joker {
         }
     },
 
-    
+    update = function (self, card, dt)
+        -- if card.ability.extra.left_joker[1] ~= nil then
+        --     sendInfoMessage(card.ability.extra.left_joker[2], card.ability.extra.left_joker[1].config.center.key)
+        -- else
+        --     sendInfoMessage(card.ability.extra.left_joker[2], card.ability.extra.left_joker[1])
+        -- end
 
-    calculate = function(self, card, context)
         local other_joker = nil
         for i = 1, #G.jokers.cards do
             if G.jokers.cards[i] == card then other_joker = G.jokers.cards[i - 1] end
         end
 
-        local otherCompat = false
-        if other_joker ~= nil then
-            for _, v in pairs(card.ability.extra.notCompatible) do
-                if #SMODS.find_card(v, true) > 0 then
-                    for _, j in pairs(SMODS.find_card(v, true)) do
-                        if j == other_joker then
-                            otherCompat = true
-                        end
+
+        if other_joker ~= card.ability.extra.left_joker[1] then
+            local otherCompat = true
+            if other_joker ~= nil then
+                for _, v in pairs(card.ability.extra.notCompatible) do
+                    if other_joker.config.center.key == v then
+                        otherCompat = false
                     end
                 end
+            else
+                otherCompat = false
             end
-        else
-            otherCompat = true
+
+
+            card.ability.extra.left_joker = {other_joker, otherCompat}
         end
+    end,
 
-
-        if not otherCompat then
-            local ret = SMODS.blueprint_effect(card, other_joker, context)
+    calculate = function(self, card, context)
+        if card.ability.extra.left_joker[2] then
+            local ret = SMODS.blueprint_effect(card, card.ability.extra.left_joker[1], context)
 
             if ret ~= nil then
                 local hasNum = false
                 for i, v in pairs(ret) do
                     if type(v) == "string" then
                         local newString = ""
-                        local startNum = nil
+                        local startNum = 0
                         local foundNum = false
                         local foundDot = false
                         for char = 1, #v do
@@ -233,7 +241,7 @@ SMODS.Joker {
                                     num = num/2
                                     newString = newString..num
                                     newString = newString..c
-                                    startNum = nil
+                                    startNum = 0
                                     foundNum = false
                                     foundDot = false
                                 end
