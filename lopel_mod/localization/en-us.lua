@@ -36,9 +36,16 @@ return {
                     "Enhances {C:attention}#1#{}", "selected card to", "{C:attention}Uranium Card{}"
                 },
             },
+
+            c_lopel_reverseHangedManTarot = {
+                name = "naM degnaH ehT",
+                text = {
+                    "Add a {V:1}Cursed Seal{} to {C:attention}#1#{} selected card in your hand",
+                }
+            }
             
         },
-
+        
         Enhanced = {
             m_lopel_uraniumEnhance = {
                 name = "Uranium",
@@ -59,5 +66,22 @@ return {
             },
         },
 
+        Other = {
+            lopel_cursed_seal = {
+                name = "Cursed Seal",
+                text = {
+                    "Card can't be",
+                    "{C:attention}debuffed{} or {C:attention}removed{}",
+                },
+            },
+        },
+
+    },
+
+
+    misc = {
+        labels = {
+            lopel_cursed_seal = "Cursed Seal",
+        },
     },
 }
