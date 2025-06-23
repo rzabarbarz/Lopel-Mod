@@ -75,8 +75,8 @@ SMODS.Enhancement {
     pos = { x = 1, y = 0},
 
     config = {
-        h_x_chips = 1.25
-        -- extra = {decayEffect = "m_lopel_leadEnhance"}
+        h_x_chips = 1.25,
+        extra = {decayEffect = "m_lopel_leadEnhance"}
     },
 
     loc_vars = function(self, info_queue, card)

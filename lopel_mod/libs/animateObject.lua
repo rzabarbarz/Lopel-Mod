@@ -69,7 +69,7 @@ function Game:update(dt)
                             obj.children.center:set_sprite_pos({x = stuff["currentX"], y = stuff["currentY"]})
                             if animateType == "once" then
                                 dt_table[index] = nil
-                                goto continue
+                                -- goto continue
                             end
                         elseif stuff["currentX"] < maxX then
                             stuff["currentX"] = stuff["currentX"]+ 1
@@ -91,7 +91,7 @@ function Game:update(dt)
                             obj.pos.y = startY
                             if animateType == "once" then
                                 dt_table[index] = nil
-                                goto continue
+                                -- goto continue
                             end
                         elseif obj.pos.x < maxX then
                             obj.pos.x = obj.pos.x + 1
@@ -105,7 +105,7 @@ function Game:update(dt)
                     end
                 end
             end
-        ::continue::
+        -- ::continue::
         end
     end
 end

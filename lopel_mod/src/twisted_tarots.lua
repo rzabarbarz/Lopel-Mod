@@ -94,6 +94,8 @@ SMODS.Consumable {
             end
         }))
 
+        -- conv_card.config.seal
+
         delay(0.5)
         G.E_MANAGER:add_event(Event({
             trigger = 'after',

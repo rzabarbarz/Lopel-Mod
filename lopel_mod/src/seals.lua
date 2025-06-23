@@ -6,13 +6,20 @@ SMODS.Atlas {
     py = 95
 }
 
+SMODS.Atlas {
+    key = "CursedSealAtlas",
+    path = "CursedSealAtlas.png",
+    px = 71,
+    py = 95
+}
+
 
 
 
 -- cursed seal
 SMODS.Seal {
     key = "Cursed",
-    atlas = "SealAtlas",
+    atlas = "CursedSealAtlas",
     pos = { x = 0, y = 0},
     badge_colour = HEX("1A140F"),
     
@@ -23,6 +30,15 @@ SMODS.Seal {
         
 
         if context.remove_playing_cards then
+
+
+            local _message = ""
+            if pseudorandom("wrongReference") < G.GAME.probabilities.normal / 1984 then
+                _message = "I ALWAYS COME BACK"
+            else
+                _message = "CURSED"
+            end
+
             return {
                 -- add self
                 G.E_MANAGER:add_event(Event({
@@ -43,11 +59,14 @@ SMODS.Seal {
 
                 message_card = G.hand.cards[#G.hand.cards],
                 colour = HEX("1A140F"),
-                message = "CURSED",
+                message = _message
+                
                
             }
         end
-    end
+    end,
+
+    
     
 }
 
