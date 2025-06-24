@@ -258,7 +258,9 @@ SMODS.Joker {
                         local startNum = 0
                         local foundNum = false
                         local foundDot = false
+                        local charSave
                         for char = 1, #v do
+                            charSave = char
                             local c = v:sub(char, char)
                             if not foundNum then
                                 if c:match("%d") then
@@ -281,6 +283,16 @@ SMODS.Joker {
                                 end
                             end
                         end
+
+                        if foundNum then
+                            local num = tonumber(v:sub(startNum, charSave))
+                            num = num/2
+                            newString = newString..num
+                            startNum = 0
+                            foundNum = false
+                            foundDot = false
+                        end
+
                         ret[i] = newString
                     
                     
@@ -293,6 +305,60 @@ SMODS.Joker {
                 return ret
             end
         end
+    end,
+
+}
+
+
+
+-- the fucking banana
+SMODS.Joker {
+    key = "michel",
+    atlas = "JokerAtlas",
+    pos = {x = 2, y = 1},
+
+    cost = 1,
+
+    rarity = 1,
+
+    config = {mult = 4, extra = {odds = 6, secretMessageOdds = 100}},
+    loc_vars = function (self, info_queue, card)
+        return {vars = {card.ability.mult, G.GAME.probabilities.normal, card.ability.extra.odds}}
+    end,
+
+
+    calculate = function(self, card, context)
+        if context.end_of_round and context.cardarea == G.jokers and pseudorandom("borrrnana") < G.GAME.probabilities.normal/card.ability.extra.odds then
+            SMODS.destroy_cards(card)
+
+            local _message = "Extinct!"
+            if pseudorandom("mikel") < G.GAME.probabilities.normal/card.ability.extra.secretMessageOdds then
+                _message = "FUCKING GONE"
+            end
+
+            return {
+                message = _message
+            }
+        end
+    end
+
+}
+
+
+
+-- the other fucking banana
+SMODS.Joker {
+    key = "gros_joker",
+    atlas = "JokerAtlas",
+    pos = {x = 3, y = 1},
+
+    cost = 8,
+
+    rarity = 2,
+
+    config = {mult = 15},
+    loc_vars = function (self, info_queue, card)
+        return {vars = {card.ability.mult}}
     end,
 
 }

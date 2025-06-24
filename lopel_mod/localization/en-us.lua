@@ -28,6 +28,21 @@ return {
                 }
             },
 
+            j_lopel_michel = {
+                name = "Mikel",
+                text = {
+                    "{C:mult}+#1#{} mult",
+                    "{C:green}#2# in #3#{} chance that it's destroyed at the end of the round"
+                }
+            },
+
+            j_lopel_gros_joker = {
+                name = "Gros Jocher",
+                text = {
+                    "{C:mult}+#1#{} mult"
+                }
+            },
+
 
 
             -- monster jokers
