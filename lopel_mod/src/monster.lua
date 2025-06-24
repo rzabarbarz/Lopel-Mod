@@ -42,12 +42,13 @@ SMODS.Joker {
 
     config = {
         extra = {
+            base_mult = 0.05,
             ability_card = "c_lopel_titanMonster_ability",
         }
     },
 
     loc_vars = function (self, info_queue, card)
-        return { vars = {card.ability.extra.ability_card, colours = {HEX("DDDDDD"), HEX("7E7E7E")}}}
+        return { vars = {card.ability.extra.ability_card, card.ability.extra.base_mult, card.ability.extra.base_mult * (G.deck and (G.deck.config.card_limit - #G.deck.cards) or 0), colours = {HEX("DDDDDD"), HEX("7E7E7E")}}}
     end,
 
     calculate = function (self, card, context)
@@ -63,6 +64,13 @@ SMODS.Joker {
                 end
             }))
         end
+
+        if context.joker_main then
+            return {
+                xmult = 1 + card.ability.extra.base_mult * (G.deck.config.card_limit - #G.deck.cards)
+            }
+        end
+        
     end
 }
 
