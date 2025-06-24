@@ -37,6 +37,7 @@ SMODS.Joker {
     key = "titanMonster_t1",
     atlas = "MonsterAtlas",
     pos = {x=0, y=0},
+    soul_pos = {x = 1, y = 0},
     rarity = "lopel_monsterRarity",
 
     config = {
@@ -63,14 +64,6 @@ SMODS.Joker {
             }))
         end
     end
-}
-
--- tier 2
-SMODS.Joker {
-    key = "titanMonster_t2",
-    atlas = "MonsterAtlas",
-    pos = {x=1, y=0},
-    rarity = "lopel_monsterRarity"
 }
 
 -- ability card
