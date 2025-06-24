@@ -8,7 +8,7 @@ SMODS.Atlas {
 
 -- type
 SMODS.ConsumableType {
-    key = "TwistedTarot",
+    key = "twisted_tarot",
     primary_colour = G.C.WHITE,
     secondary_colour = HEX("2A0C75"),
 
@@ -16,16 +16,7 @@ SMODS.ConsumableType {
 
     shop_rate = 0.0,
 
-    loc_txt = {
-        name = "Twisted Tarot",
-        collection = "Twisted Tarot Card",
-        undiscovered = {
-            name = "Not Discovered",
-            text = {"Find this card", "in an unseeded run", "to discover it's secrets"}
 
-        }
-
-    }
 }
 
 -- reverse tower
@@ -47,7 +38,7 @@ SMODS.Consumable {
 
     cost = 4,
 
-    set = "TwistedTarot",
+    set = "twisted_tarot",
 
     hidden = true,
     soul_set = "Tarot",
@@ -63,7 +54,7 @@ SMODS.Consumable {
 
     cost = 4,
 
-    set = "TwistedTarot",
+    set = "twisted_tarot",
 
     hidden = true,
     soul_set = "Tarot",

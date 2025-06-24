@@ -61,7 +61,7 @@ SMODS.Joker {
 SMODS.Joker {
     key = "natOneJoker",
 
-    rarity = 2,
+    rarity = 1,
 
     atlas = "JokerAtlas",
     pos = {x = 2, y = 0},
@@ -182,6 +182,46 @@ SMODS.Joker {
         }
     },
 
+    -- nwm co nie dziala narazie mnie to jebie ale pomysl do zrevisitowania
+
+    -- calculate = function(self, card, context)
+    --     local other_joker = nil
+    --     for i = 1, #G.jokers.cards do
+    --         if G.jokers.cards[i] == card then other_joker = G.jokers.cards[i - 1] end
+    --     end
+
+        
+
+    --     if other_joker ~= nil and context.joker_main then
+    --         local _chips
+    --         local _mult
+    --         local _xchips
+    --         local _xmult
+
+    --         if other_joker.ability.chips ~= nil and other_joker.ability.chips > 1 then
+    --             _chips = other_joker.ability.chips/2
+    --         end
+    --         if other_joker.ability.xchips ~= nil and other_joker.ability.xchips > 1 then
+    --             _xchips = other_joker.ability.xchips/2
+    --         end
+
+    --         if other_joker.ability.mult ~= nil and other_joker.ability.mult > 1 then
+    --             _mult = other_joker.ability.mult/2
+    --         end
+    --         if other_joker.ability.xmult ~= nil and other_joker.ability.xmult > 1 then
+    --             _xmult = other_joker.ability.xmult/2
+    --         end
+
+
+    --         return {
+    --             chips = _chips,
+    --             mult = _mult,
+    --             xchips = _xchips,
+    --             xmult = _xmult
+    --         }
+    --     end
+
+    -- end
 
     calculate = function(self, card, context)
         local other_joker = nil

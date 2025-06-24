@@ -26,10 +26,22 @@ return {
                     "{X:mult,C:white}xmult{} {X:chips,C:white}xchips{}",
                     "given by the {C:attention}Joker{} to the left",
                 }
+            },
+
+
+
+            -- monster jokers
+            j_lopel_titanMonster_t1 = {
+                name = "The Titan",
+                text = {
+                    "{B:1,V:2,E:1} Ability: {}",
+                    "{C:attention} Unending Depths{}"
+                }
             }
+
         },
 
-        TwistedTarot = {
+        twisted_tarot = {
             c_lopel_twistedTower = {
                 name = "The Pit",
                 text = {
@@ -44,6 +56,16 @@ return {
                 }
             }
             
+        },
+
+        ability = {
+            c_lopel_titanMonster_ability = {
+                name = "Unending Depths",
+                text = {
+                    "Discard every card",
+                    "in your hand"
+                }
+            }
         },
         
         Enhanced = {
@@ -66,6 +88,21 @@ return {
             },
         },
 
+
+        Edition = {
+            e_lopel_incorp = {
+                name = "Incorporeal",
+                text = {"+#1# joker slot"}
+            },
+
+            e_lopel_incorp_consumable = {
+                name = "Incorporeal",
+                text = {"+#1# consumable slot"}
+            }
+        },
+
+
+
         Other = {
             lopel_cursed_seal = {
                 name = "Cursed Seal",
@@ -74,6 +111,26 @@ return {
                     "{C:attention}debuffed{} or {C:attention}removed{}",
                 },
             },
+
+            undiscovered_twisted_tarot = {
+                name = "Not Discovered",
+                text = {
+                "Find this card",
+                "in an unseeded run",
+                "to discover it's secrets"
+                }
+            },
+
+            undiscovered_ability = {
+                name = "Not Discovered",
+                text = {
+                    "Find the source",
+                    "of this ability",
+                    "to learn what it does"
+                }
+            }
+
+            
         },
 
     },
@@ -82,6 +139,18 @@ return {
     misc = {
         labels = {
             lopel_cursed_seal = "Cursed Seal",
+            k_lopel_monsterrarity = "Monster",
+            lopel_incorp = "Incorporeal"
+
         },
+
+        dictionary = {
+            k_lopel_monsterrarity = "Monster",
+            k_twisted_tarot = "Twisted Tarot",
+            b_twisted_tarot_cards = "Twisted Tarot Cards",
+
+            k_ability = "Ability",
+            b_ability_cards = "Ability Cards"
+        }
     },
 }
