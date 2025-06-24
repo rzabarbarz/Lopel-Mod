@@ -81,8 +81,10 @@ SMODS.Consumable {
     set = "ability",
     cost = 0,
 
-    config = {},
 
+    add_to_deck = function (self, card, from_debuff)
+        card.sell_cost = 0
+    end,
 
     calculate = function (self, card, context)
         if context.end_of_round and context.cardarea == G.consumeables then
