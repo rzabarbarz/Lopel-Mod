@@ -48,7 +48,7 @@ SMODS.Joker {
     },
 
     loc_vars = function (self, info_queue, card)
-        return { vars = {card.ability.extra.ability_card, card.ability.extra.base_mult, card.ability.extra.base_mult * (G.deck and (G.deck.config.card_limit - #G.deck.cards) or 0), colours = {HEX("DDDDDD"), HEX("7E7E7E")}}}
+        return { vars = {card.ability.extra.ability_card, card.ability.extra.base_mult, 1 + card.ability.extra.base_mult * (G.deck and (G.deck.config.card_limit - #G.deck.cards) or 0), colours = {HEX("DDDDDD"), HEX("7E7E7E")}}}
     end,
 
     calculate = function (self, card, context)
@@ -85,12 +85,6 @@ SMODS.Consumable {
 
     add_to_deck = function (self, card, from_debuff)
         card.sell_cost = 0
-    end,
-
-    calculate = function (self, card, context)
-        if context.end_of_round and context.cardarea == G.consumeables then
-            SMODS.destroy_cards(card)
-        end
     end,
 
     use = function (self, card, area, copier)

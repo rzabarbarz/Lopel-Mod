@@ -45,10 +45,13 @@ return {
 
 
 
-            -- monster jokers
+            -- champion jokers
             j_lopel_titanMonster_t1 = {
                 name = "The Titan",
                 text = {
+                    "Gives {X:mult,C:white}x#2#{} mult",
+                    "for every card below deck size",
+                    "{C:inactive}(Current value:{} {X:mult,C:white}x#3#{}{C:inactive}){}",
                     "{B:1,V:2,E:1} Ability: {}",
                     "{C:attention} Unending Depths{}"
                 }
@@ -107,13 +110,13 @@ return {
         Edition = {
             e_lopel_incorp = {
                 name = "Incorporeal",
-                text = {"+#1# joker slot"}
+                text = {"+#1# consumable slot", "destroys itself after the round"}
             },
 
-            e_lopel_incorp_consumable = {
-                name = "Incorporeal",
-                text = {"+#1# consumable slot"}
-            }
+            -- e_lopel_incorp_consumable = {
+            --     name = "Incorporeal",
+            --     text = {"+#1# consumable slot"}
+            -- }
         },
 
 
@@ -154,13 +157,13 @@ return {
     misc = {
         labels = {
             lopel_cursed_seal = "Cursed Seal",
-            k_lopel_monsterrarity = "Monster",
+            k_lopel_monsterrarity = "Champion",
             lopel_incorp = "Incorporeal"
 
         },
 
         dictionary = {
-            k_lopel_monsterrarity = "Monster",
+            k_lopel_monsterrarity = "Champion",
             k_twisted_tarot = "Twisted Tarot",
             b_twisted_tarot_cards = "Twisted Tarot Cards",
 

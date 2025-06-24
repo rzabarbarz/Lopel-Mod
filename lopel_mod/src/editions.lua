@@ -11,6 +11,12 @@ SMODS.Edition {
 
     loc_vars = function (self, info_queue, card)
         return {vars = {card.edition.card_limit}}
-    end
+    end,
+
+    calculate = function (self, card, context)
+        if context.end_of_round and context.cardarea == G.consumeables then
+            SMODS.destroy_cards(card)
+        end
+    end,
 
 }
