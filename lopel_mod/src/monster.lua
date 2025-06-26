@@ -48,6 +48,7 @@ SMODS.Joker {
     },
 
     loc_vars = function (self, info_queue, card)
+        info_queue[#info_queue+1] = G.P_CENTERS["c_lopel_titanMonster_ability"]
         return { vars = {card.ability.extra.ability_card, card.ability.extra.base_mult, 1 + card.ability.extra.base_mult * (G.deck and (G.deck.config.card_limit - #G.deck.cards) or 0), colours = {HEX("DDDDDD"), HEX("7E7E7E")}}}
     end,
 

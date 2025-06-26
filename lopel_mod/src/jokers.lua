@@ -362,3 +362,61 @@ SMODS.Joker {
     end,
 
 }
+
+
+-- robo-joker
+SMODS.Joker {
+    key = "robo_joker",
+    atlas = "JokerAtlas",
+    pos = {x = 9, y = 0},
+    rarity = 3,
+    cost = 8,
+    config  = {extra = {repetitions = 2, compatible_enhancements = {"m_gold", "m_steel", "m_lopel_leadEnhance"}}},
+
+    loc_vars = function (self, info_queue, card)
+        for _, i in pairs(card.ability.extra.compatible_enhancements) do
+            info_queue[#info_queue+1] = G.P_CENTERS[i]
+        end
+
+        return {vars = {card.ability.extra.repetitions}}
+    end,
+
+
+    calculate = function (self, card, context)
+        --  and context.cardarea == G.play
+        if context.repetition then
+            local can_trigger = false
+            for _, i in pairs(card.ability.extra.compatible_enhancements) do
+                if SMODS.has_enhancement(context.other_card, i) then
+                    can_trigger = true
+                end
+            end
+
+            if can_trigger then
+                return {
+                    repetitions = card.ability.extra.repetitions
+                }
+            end
+        end
+    end,
+
+    locked_loc_vars = function (self, info_queue, card)
+        return {vars = {15}}
+    end,
+
+
+    check_for_unlock = function (self, args)
+        if args.type == "modify_deck" then
+            local counter = 0
+            for _, c in ipairs(G.playing_cards or {}) do
+                if SMODS.has_enhancement(c, "m_gold") or SMODS.has_enhancement(c, "m_steel") or SMODS.has_enhancement(c, "m_lopel_leadEnhance") then
+                    counter = counter + 1
+                end
+                if counter >= 15 then
+                    return true
+                end
+            end
+        end
+        return false
+    end
+}

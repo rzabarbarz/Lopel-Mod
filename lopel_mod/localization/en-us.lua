@@ -43,6 +43,21 @@ return {
                 }
             },
 
+            j_lopel_robo_joker = {
+                name = "Robo-Joker",
+                text = {
+                    "Retriggers all:",
+                    "{C:attention}Steel{}, {C:attention}Gold{}",
+                    "{C:attention}Lead{}, {C:attention}Copper{}",
+                    "cards #1# times"
+                },
+                unlock = {
+                    "Have at least {C:attention}#1#{}",
+                    "{C:attetnion}metal cards{}",
+                    "in your deck"
+                }
+            },
+
 
 
             -- champion jokers
