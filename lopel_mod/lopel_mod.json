@@ -1,14 +1,14 @@
 {
 	"id": "lopel_mod", 
-	"name": "Łopeł", 
-	"author": ["rzabarbarz"], 
+	"name": "The Great Pacific Joker Patch", 
+	"author": ["rzabarbarz", "Kogiusz"], 
 	"description": "A description of your mod.", 
 	"prefix": "lopel",
 	"main_file": "lopel_mod_main.lua",
 	"priority": -20, 
 	"badge_colour": "A83252", 
-	"badge_text_colour": "000000", 
-	"display_name": "Łopeł", 
+	"badge_text_colour": "FFFFFF", 
+	"display_name": "GPJP", 
 	"version": "1.0.0", 
 	"dependencies": [
 		"Steamodded (>=1.*)", 
