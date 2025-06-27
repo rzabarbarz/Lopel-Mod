@@ -72,6 +72,15 @@ return {
                 }
             },
 
+            j_GPJP_choco_coin = {
+                name = "Chocolate Coins",
+                text = {
+                    "Gain {C:money}#1#${} after defeating",
+                    "the next Boss Blind",
+                    "Destoys itself after activating"
+                }
+            },
+
 
 
             -- champion jokers

@@ -459,6 +459,7 @@ SMODS.Joker {
             local len = (other and #other.label) or 0
 
             local x = 1
+            -- scrapped big word bonus
             -- if len > card.ability.extra.big_word_count then
             --     x = card.ability.extra.big_word_bonus
             -- end
@@ -476,4 +477,33 @@ SMODS.Joker {
 -- chocolate coins
 SMODS.Joker {
     key = "choco_coin",
+    atlas = "JokerAtlas",
+    pos = {x = 5, y = 0},
+    rarity = 1,
+    cost = 4,
+
+    blueprint_compat = false,
+
+    config = {extra = {dollars = 15}},
+
+    loc_vars = function (self, info_queue, card)
+        return {vars = {card.ability.extra.dollars}}
+    end,
+
+    calc_dollar_bonus = function (self, card)
+        if G.GAME.blind.boss then
+            G.E_MANAGER:add_event(Event({
+                immediate = true,
+                func = function ()
+                    SMODS.calculate_effect({message = "Payday!", colour = G.C.MONEY}, card)
+                    SMODS.destroy_cards(card)
+                    return true
+                end
+            }))
+            
+            return card.ability.extra.dollars
+        end
+    end
+
+
 }
