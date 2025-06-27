@@ -246,8 +246,14 @@ SMODS.Joker {
             card.ability.extra.left_joker = {other_joker, otherCompat}
         end
 
+        
+
 
         if card.ability.extra.left_joker[2] then
+            -- for i, v in pairs(card.ability.extra.left_joker[1]) do
+            --     sendInfoMessage(i, type(v))
+            -- end
+            -- sendInfoMessage(card.ability.extra.left_joker[1].label, "chuj")
             local ret = SMODS.blueprint_effect(card, card.ability.extra.left_joker[1], context)
 
             if ret ~= nil then
@@ -418,5 +424,49 @@ SMODS.Joker {
             end
         end
         return false
+    end
+}
+
+
+
+-- scrabble joker
+SMODS.Joker {
+    key = "scrabble",
+    atlas = "JokerAtlas",
+    pos = {x = 4, y = 1},
+    rarity = 1,
+    cost = 3,
+
+    config = {extra = {letter_val = 9, big_word_count = 12, big_word_bonus = 1.25}},
+    loc_vars = function (self, info_queue, card)
+        local other = nil
+        if G.play then
+            for i = 1, #G.jokers.cards do
+                if G.jokers.cards[i] == card then other = G.jokers.cards[i + 1] end
+            end
+        end
+
+        return {vars = {card.ability.extra.letter_val, card.ability.extra.big_word_count, card.ability.extra.big_word_bonus, (other and card.ability.extra.letter_val * #other.label) or 0}}
+    end,
+
+    calculate = function (self, card, context)
+        if context.joker_main then
+            local other = nil
+            for i = 1, #G.jokers.cards do
+                if G.jokers.cards[i] == card then other = G.jokers.cards[i + 1] end
+            end
+
+            local len = (other and #other.label) or 0
+
+            local x = 1
+            -- if len > card.ability.extra.big_word_count then
+            --     x = card.ability.extra.big_word_bonus
+            -- end
+
+            return {
+                chips = len * card.ability.extra.letter_val,
+                xchips = x
+            }
+        end
     end
 }

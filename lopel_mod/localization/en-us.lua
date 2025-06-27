@@ -58,6 +58,20 @@ return {
                 }
             },
 
+            j_lopel_scrabble = {
+                name = "hasbro dont sue",
+                text = {
+                    "Gives {C:chips}+#1#{} chips",
+                    "for every letter in the",
+                    "name of the joker to the right",
+                    -- "",
+                    -- "If the name has more",
+                    -- "than {C:attention}#2#{} letters",
+                    -- "then gives also {X:chips,C:white}x#3#{} chips",
+                    "{C:inactive}(current bonus: {}{C:chips}+#4#{}{C:inactive}){}"
+                }
+            },
+
 
 
             -- champion jokers
