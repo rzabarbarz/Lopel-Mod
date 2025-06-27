@@ -4,17 +4,29 @@ return {
             j_GPJP_ticketToRideJoker = {
                 name = "Ticket To Ride",
                 text = {
-                    "For every card played:",
-                    "- if the card is not a face card - stores {C:mult}+#1# {} mult",
-                    "- if the card is a face card - gives stored mult and resets",
+                    "Stores {C:mult}+#1#{} mult for every",
+                    "scoring {C:attention}Numbered Card{}",
+                    "After playing {C:attention}Face Card{}",
+                    "adds stored mult and resets",
                     "{C:inactive}(Currently:{} {C:mult}+#2#{} {C:inactive}mult){}"
+                    -- "Every non-face card",
+                    -- "scored stores {C:mult}+#1#{}mult",
+                    -- "Releases stored mult",
+                    -- "on scoring a face card",
+                    
+
+
+                    -- "For every card played:",
+                    -- "- if the card is not a face card - stores {C:mult}+#1# {} mult",
+                    -- "- if the card is a face card - gives stored mult and resets",
+                   
                 },
             },
 
             j_GPJP_natOneJoker = {
                 name = "Natural 1",
                 text = {
-                    "changes all {C:attention}probabilites{} to {C:green}0{}"
+                    "Changes all {C:attention}probabilites{} to {C:green}0{}"
                 },
             },
 
