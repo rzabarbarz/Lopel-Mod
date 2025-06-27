@@ -38,17 +38,17 @@ SMODS.Joker {
     atlas = "MonsterAtlas",
     pos = {x=0, y=0},
     soul_pos = {x = 1, y = 0},
-    rarity = "lopel_monsterRarity",
+    rarity = "GPJP_monsterRarity",
 
     config = {
         extra = {
             base_mult = 0.05,
-            ability_card = "c_lopel_titanMonster_ability",
+            ability_card = "c_GPJP_titanMonster_ability",
         }
     },
 
     loc_vars = function (self, info_queue, card)
-        info_queue[#info_queue+1] = G.P_CENTERS["c_lopel_titanMonster_ability"]
+        info_queue[#info_queue+1] = G.P_CENTERS["c_GPJP_titanMonster_ability"]
         return { vars = {card.ability.extra.ability_card, card.ability.extra.base_mult, 1 + card.ability.extra.base_mult * (G.deck and (G.deck.config.card_limit - #G.deck.cards) or 0), colours = {HEX("DDDDDD"), HEX("7E7E7E")}}}
     end,
 
@@ -58,8 +58,8 @@ SMODS.Joker {
                 func = function ()
                     SMODS.add_card({
                         area = G.consumeables,
-                        key = "c_lopel_titanMonster_ability",
-                        edition = "e_lopel_incorp"
+                        key = "c_GPJP_titanMonster_ability",
+                        edition = "e_GPJP_incorp"
                     })
                     return true
                 end

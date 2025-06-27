@@ -71,7 +71,7 @@ SMODS.Seal {
 }
 
 SMODS.current_mod.set_debuff = function (card)
-      if card.seal == "lopel_Cursed" then
+      if card.seal == "GPJP_Cursed" then
         return "prevent_debuff"
       end  
 end

@@ -25,7 +25,7 @@ SMODS.Consumable {
 
     config = {
         max_highlighted = 1,
-        mod_conv = "m_lopel_uraniumEnhance"
+        mod_conv = "m_GPJP_uraniumEnhance"
     },
 
     loc_vars = function(self, info_queue, card)
@@ -60,7 +60,7 @@ SMODS.Consumable {
     soul_set = "Tarot",
     soul_rate = 0.08,
 
-    config = { extra = { seal = "lopel_Cursed" }, max_highlighted = 1 },
+    config = { extra = { seal = "GPJP_Cursed" }, max_highlighted = 1 },
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue + 1] = G.P_SEALS[card.ability.extra.seal]
         return { vars = { card.ability.max_highlighted, colours = {HEX("1A140F")}} }

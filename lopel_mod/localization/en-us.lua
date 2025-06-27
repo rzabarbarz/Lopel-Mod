@@ -1,7 +1,7 @@
 return {
     descriptions = {
         Joker = {
-            j_lopel_ticketToRideJoker = {
+            j_GPJP_ticketToRideJoker = {
                 name = "Ticket To Ride",
                 text = {
                     "For every card played:",
@@ -11,14 +11,14 @@ return {
                 },
             },
 
-            j_lopel_natOneJoker = {
+            j_GPJP_natOneJoker = {
                 name = "Natural 1",
                 text = {
                     "changes all {C:attention}probabilites{} to {C:green}0{}"
                 },
             },
 
-            j_lopel_knockOffJoker = {
+            j_GPJP_knockOffJoker = {
                 name = "Knock-off",
                 text = {
                     "Copies half of the",
@@ -28,7 +28,7 @@ return {
                 }
             },
 
-            j_lopel_michel = {
+            j_GPJP_michel = {
                 name = "Mikel",
                 text = {
                     "{C:mult}+#1#{} mult",
@@ -36,14 +36,14 @@ return {
                 }
             },
 
-            j_lopel_gros_joker = {
+            j_GPJP_gros_joker = {
                 name = "Gros Jocher",
                 text = {
                     "{C:mult}+#1#{} mult"
                 }
             },
 
-            j_lopel_robo_joker = {
+            j_GPJP_robo_joker = {
                 name = "Robo-Joker",
                 text = {
                     "Retriggers all:",
@@ -58,7 +58,7 @@ return {
                 }
             },
 
-            j_lopel_scrabble = {
+            j_GPJP_scrabble = {
                 name = "hasbro dont sue",
                 text = {
                     "Gives {C:chips}+#1#{} chips",
@@ -75,7 +75,7 @@ return {
 
 
             -- champion jokers
-            j_lopel_titanMonster_t1 = {
+            j_GPJP_titanMonster_t1 = {
                 name = "The Titan",
                 text = {
                     "Gives {X:mult,C:white}x#2#{} mult",
@@ -89,14 +89,14 @@ return {
         },
 
         twisted_tarot = {
-            c_lopel_twistedTower = {
+            c_GPJP_twistedTower = {
                 name = "The Pit",
                 text = {
                     "Enhances {C:attention}#1#{}", "selected card to", "{C:attention}Uranium Card{}"
                 },
             },
 
-            c_lopel_twistedHangedMan = {
+            c_GPJP_twistedHangedMan = {
                 name = "The Impaled",
                 text = {
                     "Add a {V:1}Cursed Seal{}", "to {C:attention}#1#{} selected", "card in your hand",
@@ -106,7 +106,7 @@ return {
         },
 
         ability = {
-            c_lopel_titanMonster_ability = {
+            c_GPJP_titanMonster_ability = {
                 name = "Unending Depths",
                 text = {
                     "Discard every card",
@@ -116,7 +116,7 @@ return {
         },
         
         Enhanced = {
-            m_lopel_uraniumEnhance = {
+            m_GPJP_uraniumEnhance = {
                 name = "Uranium",
                 text = {
                     "{X:chips,C:white}x#1#{} chips{}",
@@ -125,7 +125,7 @@ return {
                 },
             },
 
-            m_lopel_leadEnhance = {
+            m_GPJP_leadEnhance = {
                 name = "Lead",
                 text = {
                     "{X:chips,C:white}x#1#{} chips{}",
@@ -137,12 +137,12 @@ return {
 
 
         Edition = {
-            e_lopel_incorp = {
+            e_GPJP_incorp = {
                 name = "Incorporeal",
                 text = {"+#1# consumable slot", "destroys itself after the round"}
             },
 
-            -- e_lopel_incorp_consumable = {
+            -- e_GPJP_incorp_consumable = {
             --     name = "Incorporeal",
             --     text = {"+#1# consumable slot"}
             -- }
@@ -151,7 +151,7 @@ return {
 
 
         Other = {
-            lopel_cursed_seal = {
+            GPJP_cursed_seal = {
                 name = "Cursed Seal",
                 text = {
                     "Card can't be",
@@ -185,14 +185,14 @@ return {
 
     misc = {
         labels = {
-            lopel_cursed_seal = "Cursed Seal",
-            k_lopel_monsterrarity = "Champion",
-            lopel_incorp = "Incorporeal"
+            GPJP_cursed_seal = "Cursed Seal",
+            k_GPJP_monsterrarity = "Champion",
+            GPJP_incorp = "Incorporeal"
 
         },
 
         dictionary = {
-            k_lopel_monsterrarity = "Champion",
+            k_GPJP_monsterrarity = "Champion",
             k_twisted_tarot = "Twisted Tarot",
             b_twisted_tarot_cards = "Twisted Tarot Cards",
 

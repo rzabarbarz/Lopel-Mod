@@ -19,7 +19,7 @@ SMODS.Enhancement {
         extra = {
             decayChance = 3,
             decayEffectName = "Lead",
-            decayEffect = "m_lopel_leadEnhance",
+            decayEffect = "m_GPJP_leadEnhance",
             hasDecayed = false,
         }
     },
@@ -76,7 +76,7 @@ SMODS.Enhancement {
 
     config = {
         h_x_chips = 1.25,
-        extra = {decayEffect = "m_lopel_leadEnhance"}
+        extra = {decayEffect = "m_GPJP_leadEnhance"}
     },
 
     loc_vars = function(self, info_queue, card)

@@ -75,9 +75,9 @@ SMODS.Joker {
     },
 
     add_to_deck = function(self, card, from_debuff)
-        if #SMODS.find_card("j_lopel_natOneJoker", true) > 0 then
-            card.ability.oopsCount = SMODS.find_card("j_lopel_natOneJoker", true)[1].ability.oopsCount
-            card.ability.storedProbabilities = SMODS.find_card("j_lopel_natOneJoker", true)[1].ability.storedProbabilities
+        if #SMODS.find_card("j_GPJP_natOneJoker", true) > 0 then
+            card.ability.oopsCount = SMODS.find_card("j_GPJP_natOneJoker", true)[1].ability.oopsCount
+            card.ability.storedProbabilities = SMODS.find_card("j_GPJP_natOneJoker", true)[1].ability.storedProbabilities
         else
             card.ability.oopsCount = #SMODS.find_card("j_oops", true)
             for k, v in pairs(G.GAME.probabilities) do
@@ -88,7 +88,7 @@ SMODS.Joker {
     end,
 
     remove_from_deck = function(self, card, from_debuff)
-        if #SMODS.find_card("j_lopel_natOneJoker", true) == 0 then
+        if #SMODS.find_card("j_GPJP_natOneJoker", true) == 0 then
             local oopsDifference = #SMODS.find_card("j_oops", true) - card.ability.oopsCount
             for k, v in pairs(G.GAME.probabilities) do
                 G.GAME.probabilities[k] = (card.ability.storedProbabilities[k] * (2^oopsDifference))
@@ -175,8 +175,8 @@ SMODS.Joker {
                 "j_burnt",
                 "j_chicot",
                 "j_perkeo",
-                "j_lopel_natOneJoker",
-                "j_lopel_ticketToRideJoker",
+                "j_GPJP_natOneJoker",
+                "j_GPJP_ticketToRideJoker",
 
             }
         }
@@ -377,7 +377,7 @@ SMODS.Joker {
     pos = {x = 9, y = 0},
     rarity = 3,
     cost = 8,
-    config  = {extra = {repetitions = 2, compatible_enhancements = {"m_gold", "m_steel", "m_lopel_leadEnhance"}}},
+    config  = {extra = {repetitions = 2, compatible_enhancements = {"m_gold", "m_steel", "m_GPJP_leadEnhance"}}},
 
     loc_vars = function (self, info_queue, card)
         for _, i in pairs(card.ability.extra.compatible_enhancements) do
@@ -415,7 +415,7 @@ SMODS.Joker {
         if args.type == "modify_deck" then
             local counter = 0
             for _, c in ipairs(G.playing_cards or {}) do
-                if SMODS.has_enhancement(c, "m_gold") or SMODS.has_enhancement(c, "m_steel") or SMODS.has_enhancement(c, "m_lopel_leadEnhance") then
+                if SMODS.has_enhancement(c, "m_gold") or SMODS.has_enhancement(c, "m_steel") or SMODS.has_enhancement(c, "m_GPJP_leadEnhance") then
                     counter = counter + 1
                 end
                 if counter >= 15 then
@@ -469,4 +469,11 @@ SMODS.Joker {
             }
         end
     end
+}
+
+
+
+-- chocolate coins
+SMODS.Joker {
+    key = "choco_coin",
 }
