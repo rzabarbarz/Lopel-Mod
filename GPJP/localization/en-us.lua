@@ -71,7 +71,7 @@ return {
             },
 
             j_GPJP_scrabble = {
-                name = "hasbro dont sue",
+                name = "Letter Tiles",
                 text = {
                     "Gives {C:chips}+#1#{} chips",
                     "for every letter in the",
@@ -90,6 +90,23 @@ return {
                     "Gain {C:money}#1#${} after defeating",
                     "the next Boss Blind",
                     "Destoys itself after activating"
+                }
+            },
+
+            j_GPJP_businessman = {
+                name = "Businessman",
+                text = {
+                    "Gains {C:money}#1#${} {C:attention}sell value{} for every",
+                    "scored card with {V:1}#2#{} suit",
+                    "{s:0.7, C:inactive}Suit changes every round{}"
+                }
+            },
+
+            j_GPJP_lumberjack = {
+                name = "LumberJack",
+                text = {
+                    "Every played {C:attention}Jack{} permanently",
+                    "gains {C:mult}+#1#{} mult when scored"
                 }
             },
 

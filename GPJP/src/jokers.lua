@@ -504,6 +504,71 @@ SMODS.Joker {
             return card.ability.extra.dollars
         end
     end
+}
 
+-- businessman
+SMODS.Joker {
+    key = "businessman",
+    atlas = "JokerAtlas",
+    pos = {x = 6, y = 0},
 
+    blueprint_compat = false,
+    rarity = 2,
+    cost = 5,
+
+    config = {extra = {money = 1, suit = "Spades"}},
+    loc_vars = function (self, info_queue, card)
+        return {vars = {card.ability.extra.money, localize(card.ability.extra.suit, "suits_singular"), colours = {G.C.SUITS[card.ability.extra.suit]}}}
+    end,
+
+    calculate = function (self, card, context)
+        if context.end_of_round and context.game_over == false and context.main_eval and not context.blueprint then
+            local av_suits = {}
+            for _, v in ipairs({"Spades", "Hearts", "Clubs", "Diamonds"}) do
+                if v ~= card.ability.extra.suit then
+                    av_suits[#av_suits+1] = v
+                end
+            end
+
+            card.ability.extra.suit = pseudorandom_element(av_suits, "CEO grindset"..G.GAME.round_resets.ante) 
+        end
+
+        if context.individual and context.cardarea == G.play and context.other_card:is_suit(card.ability.extra.suit) then
+            card.ability.extra_value = card.ability.extra_value + card.ability.extra.money
+            card:set_cost()
+            return {
+                message_card = card,
+                message = "Profit!",
+                colour = G.C.MONEY
+            }
+        end
+    end
+    
+}
+
+-- lumberJack
+SMODS.Joker {
+    key = "lumberjack",
+    atlas = "JokerAtlas",
+    pos = {x = 4, y = 0},
+
+    blueprint_compat = true,
+    rarity = 1,
+    cost = 3,
+
+    config = {extra = {extra_mult = 2}},
+    loc_vars = function (self, info_queue, card)
+        return {vars = {card.ability.extra.extra_mult}}
+    end,
+
+    calculate = function (self, card, context)
+        if context.individual and context.cardarea == G.play and not context.other_card.debuff and context.other_card:get_id() == 11 then
+            context.other_card.ability.perma_mult = context.other_card.ability.perma_mult or 0
+            context.other_card.ability.perma_mult = context.other_card.ability.perma_mult + card.ability.extra.extra_mult
+            return {
+                message = "Upgrade!",
+                colour = G.C.MULT
+            }
+        end
+    end
 }
